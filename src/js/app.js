@@ -31,17 +31,9 @@ function navegacionFija() {
 }
 
 function scrollNav() {
-    const enlaces = document.querySelectorAll('.navegacion-principal a');
+    const enlaces = document.querySelectorAll('.navegacion-principal a:not(#portfolio)');
 
     enlaces.forEach( enlace => {
-        /*
-        Código original explicado en la clase
-        enlace.addEventListener('click', function(e) {
-            e.preventDefault();
-            const seccionScroll = e.target.attributes.href.value;
-            const seccion = document.querySelector(seccionScroll);
-            seccion.scrollIntoView({ behavior: 'smooth'});
-        });*/
         enlace.addEventListener('click', clickHandler);
     });
 }
@@ -53,7 +45,7 @@ function clickHandler(e) {
 	const header = document.querySelector('.header');
 	const headerHeight = header.offsetHeight;
 	scroll({
-		top: offsetTop - headerHeight,
+		top: offsetTop - headerHeight + 1,
 		behavior: 'smooth'
 	});
 }
